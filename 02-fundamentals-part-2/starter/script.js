@@ -307,237 +307,333 @@
 // console.log(`Passing students: ${passing} out of ${grades3.length}`);
 
 
-// Objects
+// // Objects
 
-const rishayeArray = [
-  "Rishaye",
-  "Melad",
-  2025 - 2003,
-  "Student",
-  ["Panpan", "Liclic", "Shiro"]
-];
+// const rishayeArray = [
+//   "Rishaye",
+//   "Melad",
+//   2025 - 2003,
+//   "Student",
+//   ["Panpan", "Liclic", "Shiro"]
+// ];
 
-console.log(rishayeArray[0]);
-console.log(rishayeArray[1]);
+// console.log(rishayeArray[0]);
+// console.log(rishayeArray[1]);
 
-const rishayeObject = {
-  firstName : "Rishaye",
-  lastName : "Melad",
-  age: 2025 - 2003,
-  job: "Student",
-  friends : ["Panpan", "Liclic", "Shiro"]
-};
+// const rishayeObject = {
+//   firstName : "Rishaye",
+//   lastName : "Melad",
+//   age: 2025 - 2003,
+//   job: "Student",
+//   friends : ["Panpan", "Liclic", "Shiro"]
+// };
 
-console.log(rishayeObject);
+// console.log(rishayeObject);
 
-// Property access method
-// Dot notation
-console.log(rishayeObject.firstName);
-console.log(rishayeObject.lastName);
-console.log(rishayeObject.age);
+// // Property access method
+// // Dot notation
+// console.log(rishayeObject.firstName);
+// console.log(rishayeObject.lastName);
+// console.log(rishayeObject.age);
 
-// Bracker notation
-console.log(rishayeObject['firstName']);
-console.log(rishayeObject['lastName']);
-console.log(rishayeObject['age']);
+// // Bracker notation
+// console.log(rishayeObject['firstName']);
+// console.log(rishayeObject['lastName']);
+// console.log(rishayeObject['age']);
 
-const nameKey = "Name";
-console.log(rishayeObject["first" + nameKey]);
+// const nameKey = "Name";
+// console.log(rishayeObject["first" + nameKey]);
 
-// Modifying existing properties
-rishayeObject.job = "Programmer";
-rishayeObject['age'] = 30;
-console.log(rishayeObject);
+// // Modifying existing properties
+// rishayeObject.job = "Programmer";
+// rishayeObject['age'] = 30;
+// console.log(rishayeObject);
 
-// Add new properties
-rishayeObject.location = "Philippines";
-rishayeObject["twiiter"] = "rishaye";
-rishayeObject.hasDriversLicensse = false;
-console.log(rishayeObject);
+// // Add new properties
+// rishayeObject.location = "Philippines";
+// rishayeObject["twiiter"] = "rishaye";
+// rishayeObject.hasDriversLicensse = false;
+// console.log(rishayeObject);
 
-// When to use dot vs. bracket notation
-const property = "job";
-console.log(rishayeObject[property]);
+// // When to use dot vs. bracket notation
+// const property = "job";
+// console.log(rishayeObject[property]);
 
-// Objects vs. Arrays Decision Making
+// // Objects vs. Arrays Decision Making
 
-// Arrays
-const listOfYears = [1991, 1984, 2008, 2020];
-const shoppingList = ["apples", "bananas", "milk", "bread"];
-const testScores = [85, 92, 78, 96];
+// // Arrays
+// const listOfYears = [1991, 1984, 2008, 2020];
+// const shoppingList = ["apples", "bananas", "milk", "bread"];
+// const testScores = [85, 92, 78, 96];
 
-const person = {
-  name: "Jonas",
-  age: 46,
-  occupation: "teacher",
-};
+// const person = {
+//   name: "Jonas",
+//   age: 46,
+//   occupation: "teacher",
+// };
 
-const car = {
-  brand: "Toyota",
-  model: "Camry",
-  year: 2020,
-  color: "blue",
-};
+// const car = {
+//   brand: "Toyota",
+//   model: "Camry",
+//   year: 2020,
+//   color: "blue",
+// };
 
-// Objects can contain arrays, arrays can contain objects
-const student = {
-  name: "Sarah",
-  grades: [85, 92, 78], 
-  address: {
-    street: "123 Main St",
-    city: "New York",
-  },
-};
+// // Objects can contain arrays, arrays can contain objects
+// const student = {
+//   name: "Sarah",
+//   grades: [85, 92, 78], 
+//   address: {
+//     street: "123 Main St",
+//     city: "New York",
+//   },
+// };
 
-console.log(student.grades[0]);
-console.log(student.address.city);
+// console.log(student.grades[0]);
+// console.log(student.address.city);
 
 
-// Object Methods
+// // Object Methods
 
-const jonas = {
-  firstName: "Jonas",
-  lastName: "Schmedtmann",
-  birthYear: 1991,
-  job: "teacher",
-  friends: ["Michael", "Peter", "Steven"],
-  hasDriversLicense: true,
-  calcAge: function (birthYear) {
-    return 2025 - birthYear
-  }
-};
+// const jonas = {
+//   firstName: "Jonas",
+//   lastName: "Schmedtmann",
+//   birthYear: 1991,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+//   hasDriversLicense: true,
+//   calcAge: function (birthYear) {
+//     return 2025 - birthYear
+//   }
+// };
 
-console.log(jonas.calcAge(2003));
-console.log(jonas.calcAge(jonas.birthYear));
+// console.log(jonas.calcAge(2003));
+// console.log(jonas.calcAge(jonas.birthYear));
 
-const jonasImproved = {
-  firstName: "Jonas",
-  lastName: "Schmedtmann",
-  birthYear: 1991,
-  job: "teacher",
-  friends: ["Michael", "Peter", "Steven"],
-  hasDriversLicense: false,
-  calcAge: function () {
-    // console.log(this);
-    // return 2025 - this.birthYear
-    this.age = 2025 - this.birthYear
-    return this.age;
-  },
-  getSummary: function () {
-     return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`
-  }
-};
+// const jonasImproved = {
+//   firstName: "Jonas",
+//   lastName: "Schmedtmann",
+//   birthYear: 1991,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+//   hasDriversLicense: false,
+//   calcAge: function () {
+//     // console.log(this);
+//     // return 2025 - this.birthYear
+//     this.age = 2025 - this.birthYear
+//     return this.age;
+//   },
+//   getSummary: function () {
+//      return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`
+//   }
+// };
 
-console.log(jonasImproved.calcAge());
-console.log(jonasImproved.age);
-console.log(jonasImproved.getSummary());
+// console.log(jonasImproved.calcAge());
+// console.log(jonasImproved.age);
+// console.log(jonasImproved.getSummary());
 
-// Complex object with multiple methods
-const bankAccount = {
-  owner: "John Doe",
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-  interestRate: 1.2,
-  pin: 1111,
+// // Complex object with multiple methods
+// const bankAccount = {
+//   owner: "John Doe",
+//   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+//   interestRate: 1.2,
+//   pin: 1111,
 
-  // Method to calculate balance
-  calcBalance: function () {
-    this.balance = this.movements.reduce((acc, mov) => acc + mov, 0);
-    return this.balance;
-  },
+//   // Method to calculate balance
+//   calcBalance: function () {
+//     this.balance = this.movements.reduce((acc, mov) => acc + mov, 0);
+//     return this.balance;
+//   },
   
-  // Method to add movement
-  deposit: function (amount) {
-    this.movements.push(amount);
-    this.calcBalance();
-  },
+//   // Method to add movement
+//   deposit: function (amount) {
+//     this.movements.push(amount);
+//     this.calcBalance();
+//   },
 
-  withdraw: function (amount) {
-    this.movements.push(-amount);
-    this.calcBalance();   
-  },
+//   withdraw: function (amount) {
+//     this.movements.push(-amount);
+//     this.calcBalance();   
+//   },
 
-  // Method for account summary 
-  getStatement : function () {
-    return `${this.owner}'s account balance: ${this.calcBalance()}`
-  }
-};
+//   // Method for account summary 
+//   getStatement : function () {
+//     return `${this.owner}'s account balance: ${this.calcBalance()}`
+//   }
+// };
 
-console.log(bankAccount.getStatement());
-bankAccount.deposit(500);
-console.log(bankAccount.getStatement());
+// console.log(bankAccount.getStatement());
+// bankAccount.deposit(500);
+// console.log(bankAccount.getStatement());
+
+// ////////////////////////////////////
+// // Coding Challenge #3 - User Profile System
+
+// const user = {
+//   firstName: "Rishaye",
+//   lastName: "Melad",
+//   birthYear: 2003,
+//   location: "Manila",
+//   interests: ["Coding", "Watching", "Eating"],
+//   friends: [
+//     { name: "Panpan", status: "active" },
+//     { name: "Liclic", status: "inactive" },
+//     { name: "Shiro", status: "active" },
+//   ],
+//   isActive: true,
+
+//   // Calculate age method
+//   calcAge: function () {
+//     // Calculate age and store as this.age
+//     // Hint: Use new Date().getFullYear() for current year
+//     // Your code here
+//     this.age = new Date().getFullYear() - 2003;
+//     return this.age;
+//   },
+
+//   // Add friend method
+//   addFriend: function (name, status = "active") {
+//     // Add new friend object to this.friends array
+//     // Return the new length of friends array
+//     // Your code here
+//     this.friends.push({ name : name, status : status});
+//     return this.friends.length;
+//   },
+
+//   // Get active friends count
+//   getActiveFriends: function () {
+//     // Filter friends array to count only active friends
+//     // Hint: use this.friends.filter()
+//     // Your code here
+//     const activeFriends = this.friends.filter(friend => friend.status === "active");
+//     return activeFriends.length
+//   },
+
+//   // Toggle active status
+//   toggleStatus: function () {
+//     // Switch this.isActive between true and false
+//     // Return the new status
+//     // Your code here
+//     // this.isActive = false; // my answer - wrong
+//     this.isActive = !this.isActive;
+//     return this.isActive;
+//   },
+
+//   // Generate profile summary
+//   getSummary: function () {
+//     // Create a social media style profile summary
+//     // Include: name, age, location, status, friend counts, interests
+//     // Use template literals for nice formatting
+//     // Your code here
+//     return `=== User Profile ===
+    
+//     Name: ${this.firstName}
+//     Age: ${this.calcAge()}
+//     Status: ${this.isActive ? 'active' : 'inactive'}
+//     Active Friends: ${this.getActiveFriends()} out of ${this.friends.length} friends are active
+//     Interests: ${this.interests}`;
+//   },
+// };
+
+// // Test your user profile system
+// console.log(user.getSummary());
+// user.addFriend("Alex", "active");
+// user.toggleStatus();
+// console.log(`\nAfter updates:`);
+// console.log(user.getSummary());
+
+
+// Select DOM Elements
+
+// // querySelector
+// const message = document.querySelector(".message");
+// console.log(message)
+
+// const button = document.querySelector("#btn");
+// console.log(button)
+
+// const heading = document.querySelector("h1");
+// console.log(heading)
+
+// console.log(message.textContent);
+// console.log(button.id);
+// console.log(heading.tagName);
+// console.log(heading.textContent);
+
+// // getElementByID
+// const buttonByID = document.getElementById('btn');
+// console.log(buttonByID)
+// console.log(buttonByID === button)
+
+// // querySelectorAll
+// const allParagraph = document.querySelectorAll("p");
+// console.log(allParagraph)
+// console.log(allParagraph[0]) 
+
+
+// // Modifying element content
+// const message = document.querySelector(".message"); 
+
+// // Text content
+// console.log(message.textContent)
+// message.textContent = 'Hello From JavaScript'
+// console.log(message.textContent)
+
+// // innerHTML
+// message.innerHTML = '<strong>Bold text from JS</strong>'
+
+// // innerText
+// console.log(message.innerText)
+
+// // Input Element Value
+// const input = document.querySelector(".guess");
+
+// console.log(input.value)
+// input.value = 'Default text'
+// console.log(input.value)
+
+// const heading = document.querySelector("h1");
+// heading.style.color = 'red';
+// heading.style.backgroundColor = 'yellow';
+// heading.style.fontSize = '3rem';
+
+// const button = document.querySelector("#btn");
+// button.style.padding = "20px";
+// button.style.borderRadius = '10px';
+
+
+// // Event Listener 
+// // User Interactions
+// button.addEventListener("click", function() {
+//   console.log("Button was clicked");
+//   message.textContent ="You clicked the button"
+//   message.style.color = "green"
+// });
+
+// let clickCount = 0
+// button.addEventListener("click", function() {
+//   clickCount++;
+//   button.textContent = `Clicked: ${clickCount}`
+//   button.style.backgroundColor = `hsl(${clickCount * 30}, 70% , 50%)`
+// });
+
+// // Input Events
+// const display = document.querySelector(".message");
+// input.addEventListener('input', function() {
+//   const userText = input.value;
+//   display.textContent = `You typed ${userText}`;
+//   display.style.fontSize = `${userText.length + 10}px`
+// });
+
+// // Keyboard Events
+// input.addEventListener("keydown", function(event) {
+//   console.log(`Key pressed ${event.key}`);
+
+//   if (event.key === "Enter") {
+//     display.textContent = `You pressed Enter! Text was ${input.value}`
+//     input.value = ""
+//   }
+// });
 
 ////////////////////////////////////
-// Coding Challenge #3 - User Profile System
-
-const user = {
-  firstName: "Rishaye",
-  lastName: "Melad",
-  birthYear: 2003,
-  location: "Manila",
-  interests: ["Coding", "Watching", "Eating"],
-  friends: [
-    { name: "Panpan", status: "active" },
-    { name: "Liclic", status: "inactive" },
-    { name: "Shiro", status: "active" },
-  ],
-  isActive: true,
-
-  // Calculate age method
-  calcAge: function () {
-    // Calculate age and store as this.age
-    // Hint: Use new Date().getFullYear() for current year
-    // Your code here
-    this.age = new Date().getFullYear() - 2003;
-    return this.age;
-  },
-
-  // Add friend method
-  addFriend: function (name, status = "active") {
-    // Add new friend object to this.friends array
-    // Return the new length of friends array
-    // Your code here
-    this.friends.push({ name : name, status : status});
-    return this.friends.length;
-  },
-
-  // Get active friends count
-  getActiveFriends: function () {
-    // Filter friends array to count only active friends
-    // Hint: use this.friends.filter()
-    // Your code here
-    const activeFriends = this.friends.filter(friend => friend.status === "active");
-    return activeFriends.length
-  },
-
-  // Toggle active status
-  toggleStatus: function () {
-    // Switch this.isActive between true and false
-    // Return the new status
-    // Your code here
-    // this.isActive = false; // my answer - wrong
-    this.isActive = !this.isActive;
-    return this.isActive;
-  },
-
-  // Generate profile summary
-  getSummary: function () {
-    // Create a social media style profile summary
-    // Include: name, age, location, status, friend counts, interests
-    // Use template literals for nice formatting
-    // Your code here
-    return `=== User Profile ===
-    
-    Name: ${this.firstName}
-    Age: ${this.calcAge()}
-    Status: ${this.isActive ? 'active' : 'inactive'}
-    Active Friends: ${this.getActiveFriends()} out of ${this.friends.length} friends are active
-    Interests: ${this.interests}`;
-  },
-};
-
-// Test your user profile system
-console.log(user.getSummary());
-user.addFriend("Alex", "active");
-user.toggleStatus();
-console.log(`\nAfter updates:`);
-console.log(user.getSummary());
+// Coding Challenge #4 - Interactive Score Tracker Final Project
