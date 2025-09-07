@@ -137,88 +137,308 @@
 
 // calculateTimeSavings();
 
+// console.log("=== HOUR 2: DEVELOPER MINDSET & PROBLEM SOLVING ===");
 
-console.log("=== HOUR 2: DEVELOPER MINDSET & PROBLEM SOLVING ===");
+// // PRACTICAL PROBLEM-SOLVING: Smart Home Thermometer
+// /*
+// PROBLEM STATEMENT:
+// Given an array of temperatures from one day, calculate the temperature amplitude.
+// Keep in mind that sometimes there might be a sensor error.
 
-// PRACTICAL PROBLEM-SOLVING: Smart Home Thermometer
+// Test data: [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5]
+
+// STEP 1: UNDERSTANDING THE PROBLEM
+// - Temperature amplitude = difference between highest and lowest temperature
+// - Sensor errors = 'error' strings that should be ignored
+// - Return a number representing amplitude (max - min)
+
+// STEP 2: SUB-PROBLEMS
+// 1. How to ignore errors? (Skip non-number values)
+// 2. Find max value in temperature array
+// 3. Find min value in temperature array
+// 4. Subtract min from max and return result
+// */
+
+// const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5]
+
+// function calculateTempAlt(temperatures) {
+//   let highestTemp = temperatures[0]
+//   let lowestTemp = temperatures[0]
+
+//   for (let i = 0; i < temperatures.length; i++) {
+//     if (highestTemp > temperatures[i]) {
+//       highestTemp = highestTemp
+//     }
+//     else if (highestTemp < temperatures[i]) {
+//       highestTemp = temperatures[i]
+//     }
+//   }
+
+//   for (let i = 0; i < temperatures.length; i++) {
+//     if (lowestTemp < temperatures[i]) {
+//       lowestTemp = lowestTemp
+//     }
+//     else if (lowestTemp > temperatures[i]) {
+//       lowestTemp = temperatures[i]
+//     }
+//   }
+
+//   console.log(highestTemp, lowestTemp);
+//   return highestTemp - lowestTemp
+// }
+
+// console.log(calculateTempAlt(temperatures));
+
+// // EXTENDED PROBLEM: Two Arrays
+
+// function calculateTempAltNew(temp1, temp2) {
+//   const temperatures = temp1.concat(temp2)
+//   let highestTemp = temperatures[0]
+//   let lowestTemp = temperatures[0]
+
+//   for (let i = 0; i < temperatures.length; i++) {
+//     if (highestTemp > temperatures[i]) {
+//       highestTemp = highestTemp
+//     }
+//     else if (highestTemp < temperatures[i]) {
+//       highestTemp = temperatures[i]
+//     }
+//   }
+
+//   for (let i = 0; i < temperatures.length; i++) {
+//     if (lowestTemp < temperatures[i]) {
+//       lowestTemp = lowestTemp
+//     }
+//     else if (lowestTemp > temperatures[i]) {
+//       lowestTemp = temperatures[i]
+//     }
+//   }
+
+//   console.log(highestTemp, lowestTemp);
+//   return highestTemp - lowestTemp
+// }
+
+// const array1 = [3, 5, 1];
+// const array2 = [9, 0, 5];
+// console.log(calculateTempAltNew(array1, array2));
+
+console.log('=== HOUR 3: RESEARCH & DEBUGGING MASTERY ===');
+
+//RESEARCH CHALLENGE: Find Maximum Value in Array
+const arr = [3, 7, 2, 9, 1, 5];
+
+// Method 1 - For Loop (Site: Geekforgeeks)
+function largest(arr) {
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) if (arr[i] > max) max = arr[i];
+
+  return max;
+}
+
+console.log(largest(arr));
+
+// Method 2 - Recursion (Site: Geekforgeeks)
+function findMax(arr, i) {
+  if (i === arr.length - 1) {
+    return arr[i];
+  }
+
+  let recMax = findMax(arr, i + 1);
+
+  return Math.max(recMax, arr[i]);
+}
+
+function largest(arr) {
+  return findMax(arr, 0);
+}
+
+console.log(largest(arr));
+
+// Method 3 - Math.max (Site: Geekforgeeks)
+function largest(arr) {
+  return Math.max(...arr);
+}
+
+console.log(largest(arr));
+
+// Research question: "How to reverse a string in JavaScript?"
+
+// STACK OVERFLOW RESEARCH RESULTS
+// Method 1
+function reverse(s) {
+  return s.split('').reverse().join('');
+}
+
+console.log(reverse('hello'));
+
+// Method 2
+function reverse(s) {
+  return [...s].reverse().join('');
+}
+
+console.log(reverse('hello'));
+
+// Method 3
+function reverse(s) {
+  return s.split(/(?:)/u).reverse().join('');
+}
+
+console.log(reverse('hello'));
+
+// Research and implement the Array.concat method
+
+// MDN DOCUMENTATION MASTERY
+const array1 = ['a', 'b', 'c', 'd'];
+const array2 = ['d', 'e', 'f'];
+const array3 = array1.concat(array2);
+
+console.log(array3);
+
+// SYSTEMATIC DEBUGGING METHODOLOGY
+
+function calculateAverageScore(scores) {
+  let total = 0; // BUG: Should be initialized to 0
+
+  for (let i = 0; i < scores.length; i++) {
+    // BUG: Should be < not <=
+    total += scores[i];
+  }
+
+  return total / scores.length; // BUG: Should be scores.length
+}
+
+const testScores = [85, 92, 78, 96, 88];
+const buggyResult = calculateAverageScore(testScores);
+console.log('Buggy result:', buggyResult);
+
+// BROWSER DEVELOPER TOOLS MASTERY
+
+function demonstrateConsoleDebugging(data) {
+  console.group('Debugging Session');
+
+  console.log('Input data:', data);
+
+  if (typeof data !== 'object') {
+    console.warn('Warning: Expected object, got', typeof data);
+  }
+
+  console.table(data);
+  console.groupEnd();
+
+  return Array.isArray(data) ? data.length : Object.keys(data).length;
+}
+
+const arrayData = [1, 2, 3, 4, 5];
+const objectData = { name: 'John', age: 30, city: 'New York' };
+
+demonstrateConsoleDebugging(arrayData);
+demonstrateConsoleDebugging(objectData);
+
+// DEBUGGER STATEMENT AND BREAKPOINTS
+
+function stepThroughDebugging(numbers) {
+  debugger; // This will pause execution in browser dev tools
+
+  let sum = 0;
+  let count = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    const currentNumber = numbers[i];
+
+    console.log(`Processing index ${i}: value = ${currentNumber}`);
+
+    if (typeof currentNumber === 'number') {
+      sum += currentNumber;
+      count++;
+    } else {
+      console.error(`Invalid number at index ${i}:`, currentNumber);
+    }
+  }
+
+  const average = count > 0 ? sum / count : 0;
+  console.log('Final results:', { sum, count, average });
+
+  return average;
+}
+
+const mixedNumbers = [10, 20, 'error', 30, null, 40];
+const debugResult = stepThroughDebugging(mixedNumbers);
+console.log('Debug session result:', debugResult);
+
+// SYSTEMATIC BUG FIXING APPLICATION
+
 /*
-PROBLEM STATEMENT:
-Given an array of temperatures from one day, calculate the temperature amplitude. 
-Keep in mind that sometimes there might be a sensor error.
+DEBUGGING PROCESS APPLICATION:
 
-Test data: [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5]
+STEP 1: IDENTIFY
+- Bug: calculateAverageScore returns NaN or wrong value
+- Expected: Average of [85, 92, 78, 96, 88] should be 87.8
+- Actual: Getting NaN or incorrect value
 
-STEP 1: UNDERSTANDING THE PROBLEM
-- Temperature amplitude = difference between highest and lowest temperature
-- Sensor errors = 'error' strings that should be ignored
-- Return a number representing amplitude (max - min)
+STEP 2: ISOLATE
+- Bug location: Inside calculateAverageScore function
+- Specific issues: initialization, loop condition, division
 
-STEP 2: SUB-PROBLEMS
-1. How to ignore errors? (Skip non-number values)
-2. Find max value in temperature array
-3. Find min value in temperature array  
-4. Subtract min from max and return result
+STEP 3: INVESTIGATE
+- total starts as undefined (undefined + number = NaN)
+- Loop goes one iteration too far (accesses undefined)
+- Division uses wrong denominator
+
+STEP 4: FIX
+- Initialize total to 0
+- Change <= to < in loop condition
+- Remove + 1 from division
+
+STEP 5: PREVENT
+- Add input validation
+- Add type checking for array elements
 */
 
-const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5]
+function calcAveScoreNew(scores) {
+  if (!Array.isArray(scores)) {
+    return false;
+  }
 
-function calculateTempAlt(temperatures) {
-  let highestTemp = temperatures[0]
-  let lowestTemp = temperatures[0]
+  let total = 0;
 
-  for (let i = 0; i < temperatures.length; i++) {
-    if (highestTemp > temperatures[i]) {
-      highestTemp = highestTemp
-    }
-    else if (highestTemp < temperatures[i]) {
-      highestTemp = temperatures[i]
+  for (let i = 0; i < scores.length; i++) {
+    if (typeof scores[i] === 'number') {
+      total += scores[i];
+    } else {
+      console.warn(`Not a number at index ${i}:`, scores[i]);
     }
   }
 
-  for (let i = 0; i < temperatures.length; i++) {
-    if (lowestTemp < temperatures[i]) {
-      lowestTemp = lowestTemp
-    }
-    else if (lowestTemp > temperatures[i]) {
-      lowestTemp = temperatures[i]
-    }
-  }
-
-  console.log(highestTemp, lowestTemp);
-  return highestTemp - lowestTemp
+  return total / scores.length;
 }
 
-console.log(calculateTempAlt(temperatures));
+const testScoresNew = [85, 92, 78, 96, 88];
+const buggyResultNew = calcAveScoreNew(testScoresNew);
+console.log('Buggy result:', buggyResultNew);
 
-// EXTENDED PROBLEM: Two Arrays
 
-function calculateTempAltNew(temp1, temp2) {
-  const temperatures = temp1.concat(temp2)
-  let highestTemp = temperatures[0]
-  let lowestTemp = temperatures[0]
+// Comprehensive debugging verification
+console.group("Debugging Verification Tests");
 
-  for (let i = 0; i < temperatures.length; i++) {
-    if (highestTemp > temperatures[i]) {
-      highestTemp = highestTemp
-    }
-    else if (highestTemp < temperatures[i]) {
-      highestTemp = temperatures[i]
-    }
-  }
+// Test 1 - Normal case
+const normalScores = [85, 92, 78, 96, 88];
+const normalResult = calcAveScoreNew(normalScores);
+console.log("Normal case result:", normalResult);
 
-  for (let i = 0; i < temperatures.length; i++) {
-    if (lowestTemp < temperatures[i]) {
-      lowestTemp = lowestTemp
-    }
-    else if (lowestTemp > temperatures[i]) {
-      lowestTemp = temperatures[i]
-    }
-  }
+// Test 2 - Edge case with invalid data
+const mixedScores = [85, "invalid", 92, null, 78];
+const mixedResult = calcAveScoreNew(mixedScores);
+console.log("Mixed data result:", mixedResult);
 
-  console.log(highestTemp, lowestTemp);
-  return highestTemp - lowestTemp
-}
+// Test 3 - Error case with invalid input
+const errorResult = calcAveScoreNew("not an array");
+console.log("Error case result:", errorResult);
 
-const array1 = [3, 5, 1];
-const array2 = [9, 0, 5];
-console.log(calculateTempAltNew(array1, array2));
+// Test 4 - Edge case with empty array
+const emptyResult = calcAveScoreNew([]);
+console.log("Empty array result:", emptyResult);
+
+console.groupEnd();
+
+console.log("Systematic debugging process successfully applied!");
+console.log("All bugs identified, isolated, investigated, fixed, and prevented");
